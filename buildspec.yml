@@ -1,0 +1,36 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Installing Maven and Java
+      - yum install -y java-1.8.0-openjdk-devel
+      - yum install -y maven
+
+  pre_build:
+    commands:
+      - echo Preparing the build environment
+      - mvn clean
+
+  build:
+    commands:
+      - echo Building the Java application
+      - mvn compile
+      - echo Running unit tests
+      - mvn test
+
+  post_build:
+    commands:
+      - echo Packaging the Java application
+      - mvn package
+      - echo Build and package complete
+
+artifacts:
+  files:
+    - target/*.jar
+  discard-paths: yes
+  base-directory: target
+
+
+
+
