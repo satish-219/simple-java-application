@@ -27,7 +27,7 @@ phases:
 
     # Uploading the JAR file to the S3 bucket
       - echo Uploading build artifacts to S3
-      - aws s3 cp target/*.jar s3://satish219/builds/ --recursive
+      - aws s3 cp target/*.jar s3://sanju219/builds/ --recursive
 
 artifacts:
   files:
